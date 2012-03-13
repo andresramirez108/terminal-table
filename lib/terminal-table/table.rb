@@ -1,5 +1,5 @@
 
-module Terminal
+module TerminalTable
   class Table
     
     attr_reader :title

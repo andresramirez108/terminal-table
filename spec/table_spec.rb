@@ -1,7 +1,7 @@
 
 require File.dirname(__FILE__) + '/spec_helper'
 
-module Terminal
+module TerminalTable
   describe Table do
     before :each do
       @table = Table.new
@@ -85,7 +85,7 @@ module Terminal
     it "should render separators" do
       @table.headings = ['Char', 'Num']
       @table << ['a', 1]
-      separator = Terminal::Table::Separator.new(@table)
+      separator = TerminalTable::Table::Separator.new(@table)
       separator.render.should == '+------+-----+'
     end
 
@@ -225,7 +225,7 @@ module Terminal
 
 
     it "should render properly using block syntax" do
-      table = Terminal::Table.new do |t|
+      table = TerminalTable::Table.new do |t|
         t << ['a', 1]
         t << ['b', 2]
         t << ['c', 3]
@@ -240,7 +240,7 @@ module Terminal
     end
 
     it "should render properly using instance_eval block syntax" do
-      table = Terminal::Table.new do
+      table = TerminalTable::Table.new do
         add_row ['a', 1]
         add_row ['b', 2]
         add_row ['c', 3]
@@ -257,7 +257,7 @@ module Terminal
     it "should allows a hash of options for creation" do
       headings = ['Char', 'Num']
       rows = [['a', 1], ['b', 2], ['c', 3]]
-      Terminal::Table.new(:rows => rows, :headings => headings).render.should == <<-EOF.deindent
+      TerminalTable::Table.new(:rows => rows, :headings => headings).render.should == <<-EOF.deindent
         +------+-----+
         | Char | Num |
         +------+-----+

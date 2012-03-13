@@ -1,8 +1,8 @@
-= Terminal Table
+= TerminalTable Table
 
 == Description
 
-Terminal Table is a fast and simple, yet feature rich ASCII table generator written in Ruby.
+TerminalTable Table is a fast and simple, yet feature rich ASCII table generator written in Ruby.
 
 == Installation
 
@@ -14,7 +14,7 @@ Install http://gemcutter.org and execute:
 
 === Basics
 
-To use Terminal Table:
+To use TerminalTable Table:
 
   require 'terminal-table'
 
@@ -24,7 +24,7 @@ To generate a table, provide an array of arrays (which are interpreted as rows):
   rows << ['One', 1]
   rows << ['Two', 2]
   rows << ['Three', 3]
-  table = Terminal::Table.new :rows => rows
+  table = TerminalTable::Table.new :rows => rows
   
   # > puts table
   #
@@ -37,24 +37,24 @@ To generate a table, provide an array of arrays (which are interpreted as rows):
 
 The constructor can also be given a block which is either yielded the Table object or instance evaluated:
 
-  table = Terminal::Table.new do |t|
+  table = TerminalTable::Table.new do |t|
     t.rows = rows
   end
 
-  table = Terminal::Table.new do
+  table = TerminalTable::Table.new do
     self.rows = rows
   end
 
 Adding rows one by one:
 
-  table = Terminal::Table.new do |t|
+  table = TerminalTable::Table.new do |t|
     t << ['One', 1]
     t.add_row ['Two', 2]
   end
 
 To add separators between rows:
   
-  table = Terminal::Table.new do |t|
+  table = TerminalTable::Table.new do |t|
     t << ['One', 1]
     t << :separator
     t.add_row ['Two', 2]
@@ -74,7 +74,7 @@ To add separators between rows:
 
 Cells can handle multiline content:
   
-  table = Terminal::Table.new do |t|
+  table = TerminalTable::Table.new do |t|
     t << ['One', 1]
     t << :separator
     t.add_row ["Two\nDouble", 2]
@@ -97,7 +97,7 @@ Cells can handle multiline content:
 
 To add a head to the table:
 
-  table = Terminal::Table.new :headings => ['Word', 'Number'], :rows => rows
+  table = TerminalTable::Table.new :headings => ['Word', 'Number'], :rows => rows
   
   # > puts table
   #
@@ -113,7 +113,7 @@ To add a head to the table:
 
 To add a title to the table:
 
-  table = Terminal::Table.new :title => "Cheatsheet", :headings => ['Word', 'Number'], :rows => rows
+  table = TerminalTable::Table.new :title => "Cheatsheet", :headings => ['Word', 'Number'], :rows => rows
   
   # > puts table
   #
@@ -162,7 +162,7 @@ To align an individual cell, you specify the cell value in a hash along the alig
 
 To specifify style options:
   
-  table = Terminal::Table.new :headings => ['Word', 'Number'], :rows => rows, :style => {:width => 80}
+  table = TerminalTable::Table.new :headings => ['Word', 'Number'], :rows => rows, :style => {:width => 80}
   
   # > puts table
   #
@@ -192,7 +192,7 @@ And change styles on the fly:
   
 To change the default style options:
 
-  Terminal::Style.defaults = {:width => 80}
+  TerminalTable::Style.defaults = {:width => 80}
 
 All Table objects created afterwards will inherit these defaults.
 
@@ -200,7 +200,7 @@ All Table objects created afterwards will inherit these defaults.
 
 Valid options for the constructor are :rows, :headings, :style and :title - and all options can also be set on the created table object by their setter method:
 
-  table = Terminal::Table.new
+  table = TerminalTable::Table.new
   table.title = "Cheatsheet"
   table.headings = ['Word', 'Number']
   table.rows = rows

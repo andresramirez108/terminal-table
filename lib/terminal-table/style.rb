@@ -1,5 +1,5 @@
 
-module Terminal
+module TerminalTable
   class Table
     # A Style object holds all the formatting information for a Table object
     # 
@@ -20,7 +20,7 @@ module Terminal
     # 
     # To set a default style for all tables created afterwards use Style.defaults=
     # 
-    #     Terminal::Table::Style.defaults = {:width => 80}
+    #     TerminalTable::Table::Style.defaults = {:width => 80}
     #
     class Style
       @@defaults = {
